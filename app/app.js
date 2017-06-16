@@ -1,44 +1,39 @@
 angular.module('myApp', ['ngRoute'])
   .config(['$routeProvider', function($routeProvider){
       $routeProvider.when('/', {
-          templateUrl : 'home.html',
-          controller : 'WaitStaffCtrl'
+          templateUrl : 'home.html'
       }).when('/my-earnings', {
-          templateUrl : 'my-earnings.html',
-          controller : 'WaitStaffCtrl'
+          templateUrl : 'my-earnings.html'
       }).when('/new-meal', {
-          templateUrl : 'new-meal.html',
-          controller : 'WaitStaffCtrl'
+          templateUrl : 'new-meal.html'
       });
   }])
-  .controller('WaitStaffCtrl', function($scope) {
-    var vm = this;
+  .run(function($rootScope) {
+    const vm = $rootScope;
+      vm.submit = function() {
+        if (!$rootScope.mdBaseMealPrice) {
+          return
+        }
+        vm.ccSubTotal = 0;
+        vm.ccTip = 0;
+        vm.ccSubTotal = vm.mdBaseMealPrice + (vm.mdBaseMealPrice*vm.mdTaxRate/100);
+        vm.ccTip = vm.mdBaseMealPrice*vm.mdTipPercentage/100;
 
-    $scope.submit = function() {
-      if (!vm.mdBaseMealPrice) {
-        return
+        vm.eiTipTotal += vm.ccTip;
+        vm.eiMealCount ++;
+        vm.mdBaseMealPrice = null;
       }
-      vm.ccSubTotal = 0;
-      vm.ccTip = 0;
-      console.log(vm.mdBaseMealPrice);
-      vm.ccSubTotal = vm.mdBaseMealPrice + (vm.mdBaseMealPrice*vm.mdTaxRate/100);
-      vm.ccTip = vm.mdBaseMealPrice*vm.mdTipPercentage/100;
 
-      vm.eiTipTotal += vm.ccTip;
-      vm.eiMealCount ++;
-      vm.mdBaseMealPrice = null;
-    }
+      vm.init = function() {
+        vm.ccSubTotal = 0;
+        vm.ccTip = 0;
 
-    $scope.init = function() {
-      vm.ccSubTotal = 0;
-      vm.ccTip = 0;
+        vm.eiTipTotal = 0;
+        vm.eiMealCount = 0;
 
-      vm.eiTipTotal = 0;
-      vm.eiMealCount = 0;
-
-      vm.mdBaseMealPrice = null;
-      vm.mdTaxRate = 20;
-      vm.mdTipPercentage = 15;
-    }
-    $scope.init();
+        vm.mdBaseMealPrice = null;
+        vm.mdTaxRate = 20;
+        vm.mdTipPercentage = 15;
+      }
+      vm.init();
   });

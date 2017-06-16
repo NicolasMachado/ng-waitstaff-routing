@@ -1,6 +1,6 @@
 <div class="my-earning-info">
   <h3>My earning info</h3>
-  Tip total: {{ vm.eiTipTotal | number : 2 }}<br />
-  Meal count: {{ vm.eiMealCount | number : 0 }}<br />
-  Avg tip per meal: {{ vm.eiTipTotal/vm.eiMealCount || 0.00 | number : 2 }}<br />
+  Tip total: {{ eiTipTotal | number : 2 }}<br />
+  Meal count: {{ eiMealCount | number : 0 }}<br />
+  Avg tip per meal: {{ eiTipTotal/eiMealCount || 0.00 | number : 2 }}<br />
 </div>

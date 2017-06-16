@@ -7,20 +7,20 @@
       Tip Percentage: % <br />
     </div>
     <div class="meal-inputs">
-      <input required min="0" type="number" ng-model="vm.mdBaseMealPrice"><br />
-      <input required min="0" type="number" ng-model="vm.mdTaxRate"><br />
-      <input required min="0" type="number" ng-model="vm.mdTipPercentage"><br />
+      <input required min="0" type="number" ng-model="$root.mdBaseMealPrice"><br />
+      <input required min="0" type="number" ng-model="mdTaxRate"><br />
+      <input required min="0" type="number" ng-model="mdTipPercentage"><br />
     </div>
     <p>
       <button type="submit">Submit</button>
-      <button type="reset">Reset</button>{{ vm.teste }}
+      <button type="reset">Reset</button>
     </p>
   </form>
 </div>
 <div class="customer-charges">
   <h3>Customer charges</h3>
-  Subtotal: {{ vm.ccSubTotal | number : 2 }}<br />
-  Tip: {{ vm.ccTip | number : 2 }}<br />
+  Subtotal: {{ ccSubTotal | number : 2 }}<br />
+  Tip: {{ ccTip | number : 2 }}<br />
   ______________<br />
-  Total: {{ vm.ccSubTotal + vm.ccTip | number : 2 }}<br />
+  Total: {{ ccSubTotal + ccTip | number : 2 }}<br />
 </div>
