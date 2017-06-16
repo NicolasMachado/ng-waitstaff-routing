@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="main.css">
+      <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+      <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+      <script src="app.js"></script>
+  </head>
+  <body ng-controller="WaitStaffCtrl as vm">
+    <h1>Waitstaff Calculator</h1>
+    <div class="links">
+      <a ng-href="/">Home</a>
+      <a ng-href="#!/new-meal">New Meal</a>
+      <a ng-href="#!/my-earnings">My Earnings</a>
+    </div>
+    <div ng-view></div>
+    <button class="reset" ng-click="init()">Reset</button>
+  </body>
+</html>

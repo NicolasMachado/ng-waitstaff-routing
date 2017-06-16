@@ -1,0 +1,47 @@
+body {
+  text-align: center;
+  line-height: 2em;
+  font-family: monospace;
+}
+.right-cont {
+  display: inline-block;
+  vertical-align: top;
+  width: 300px;
+  padding: 15px;
+}
+
+.meal-details {
+  display: inline-block;
+  border: 1px solid;
+  vertical-align: top;
+  margin: 15px;
+  width: 400px;
+}
+
+.customer-charges, .my-earning-info {
+  border: 1px solid;
+  width: 400px;
+  margin: 15px auto;
+}
+
+.customer-charges {
+  margin-bottom: 30px;
+}
+
+.meal-labels {
+  display: inline-block;
+  text-align: right;
+}
+
+.meal-inputs {
+  display: inline-block;
+}
+
+h3 {
+  margin: 0;
+  padding: 15px;
+  border-bottom: 1px solid;
+}
+#meal-details-form {
+  padding: 15px;
+}
