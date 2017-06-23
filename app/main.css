@@ -18,6 +18,22 @@ body {
   width: 400px;
 }
 
+.anim {
+  transition: all linear 0.2s;
+}
+
+.anim.ng-enter,
+.anim.ng-leave.ng-leave-active {
+  transform: translate(-100%);
+  opacity: 0;
+
+}
+
+.anim.ng-leave,
+.anim.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
 .customer-charges, .my-earning-info {
   border: 1px solid;
   width: 400px;
@@ -42,6 +58,7 @@ h3 {
   padding: 15px;
   border-bottom: 1px solid;
 }
+
 #meal-details-form {
   padding: 15px;
 }
